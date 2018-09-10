@@ -9,7 +9,7 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, View, Image, KeyboardAvoidingView, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import MapView from 'react-native-maps';
 
 export default class main extends Component {
   constructor(props) {
@@ -34,12 +34,22 @@ export default class main extends Component {
   }
   render() {
     let { fadeAnim } = this.state;
+    
     return (
 
 
       <Animated.View style={{ flex: 1, width: 415, marginLeft: 415, right: fadeAnim }} >
-        <View style={{ flex: 1, backgroundColor: 'red' }}>
-        
+        <View style={{ flex: 2, backgroundColor: 'red' }}>
+          <MapView
+            style={{flex:1,}}
+            initialRegion={{
+              latitude: 37.78825,
+              longitude: -122.4324,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+
+          />
 
         </View>
         <View style={{ flex: 3, backgroundColor: 'black' }}>
@@ -52,5 +62,6 @@ export default class main extends Component {
 
 
     );
+    
   }
 }
